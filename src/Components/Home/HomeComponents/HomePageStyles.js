@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { fade, makeStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
 
@@ -63,5 +63,9 @@ export const HomePageStyles = makeStyles((theme) => ({
       flexGrow: 1,
       padding: theme.spacing(3),
     },
+    active:{
+      backgroundColor: fade(theme.palette.common.black, 0.15),
+     
+  }
     
   }));

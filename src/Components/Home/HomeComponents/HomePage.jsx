@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import { useTheme } from '@material-ui/core/styles';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 import {
     Drawer,
     AppBar,
@@ -21,6 +23,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import { HomePageStyles } from './HomePageStyles';
+import Search from './Search';
+import UserInfo from './UserInfo';
 
 export default function MiniDrawer() {
   const classes =  HomePageStyles();
@@ -81,22 +85,43 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-          {['Search User', 'Search Repository'].map((text, index) => (
+          <ListItem button className={classes.active}> 
+            <ListItemIcon><AccountCircleIcon /></ListItemIcon>
+            <ListItemText primary='Search User' />
+          </ListItem>
+          <ListItem button> 
+            <ListItemIcon> <FileCopyIcon /></ListItemIcon>
+            <ListItemText primary='Search Repository' />
+          </ListItem>
+          <ListItem button > 
+            <ListItemIcon><FavoriteIcon /></ListItemIcon>
+            <ListItemText primary='Saved User' />
+          </ListItem>
+          <ListItem button> 
+            <ListItemIcon><BookmarkIcon /></ListItemIcon>
+            <ListItemText primary='Saved Repository' />
+          </ListItem>
+        </List>
+        {/* <List>
+          {['Search User', 'Search Repository','Saved User','Saved Repository'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon className={classes.ListItemIcon}>{index % 2 === 0 ? <AccountCircleIcon /> : <FileCopyIcon />}</ListItemIcon>
+              <ListItemIcon className={classes.ListItemIcon}>{index % 2 === 0 ? <AccountCircleIcon /> : }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>
+        {/* <Typography paragraph>
          
         </Typography>
         <Typography paragraph>
         
-        </Typography>
+        </Typography> */}
+        <Search />
+        <UserInfo />
+        
       </main>
     </div>
   );
